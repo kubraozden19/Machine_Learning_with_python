@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+# VERİ ÖN İŞLEME ------------------------------------------------------------
 #veri yükleme
 veriler = pd.read_csv('eksikveriler.csv')
 print(veriler)
@@ -21,7 +22,7 @@ boykilo = veriler[["boy","kilo"]]
 print(boykilo)
 
 
-#eksik veriler
+#eksik veriler ------------------------------------------------------------
 
 from sklearn.impute import SimpleImputer
 
@@ -74,6 +75,7 @@ ulke = ohe.fit_transform(ulke).toarray()
 print(ulke) 
 
 #-----------------------------------------------------------------------------------
+# Numpy dizileri dataFrame dönüşümü
 # parça parça veri kümelerimiz oluştu nan değerleri giderdik, kategorik verileri one-hat-encoding ile değiştirdiğimiz veri kümesi var
 # bu veri parçalarımızı tek bir dataFrame de toplayacağız
 
@@ -92,7 +94,7 @@ print(cinsiyet)
 sonuc3 = pd.DataFrame(data = cinsiyet, index = range(22), columns = ["cinsiyet"])
 print(sonuc3)
 
-# Bu dataframeleri birleştirelim 
+# Bu dataframeleri birleştirelim -------------------------------------------
 # sonuc + sonuc2 : ilk olarak ulke ve yas,boy,kilo kolonları birleştirildi
 s = pd.concat([sonuc,sonuc2], axis = 1)  # axis = 0 kolon düzeyinde, axis = 1 satır düzeyinde birleştirme
 print(s)
@@ -111,6 +113,7 @@ x_train, x_test, y_train, y_test = train_test_split(s, sonuc3, test_size = 0.33,
 
 #--------------------------------------------------------------------------
 # Öznitelik Ölçekleme
+# verileri standartlaştırdık
 
 from sklearn.preprocessing import StandardScaler
 
@@ -118,8 +121,6 @@ sc = StandardScaler()
 
 X_train = sc.fit_transform(x_train)
 X_test = sc.fit_transform(x_test)
-
-
 
 
 
