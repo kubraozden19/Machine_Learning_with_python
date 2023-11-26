@@ -166,8 +166,7 @@ model = sm.OLS(boy, X_l).fit()
 print(model.summary())
 
 
-
-
+# OLS Regression Result incelediğimizde x6 değerinin p-value değeri yüksek olduğu için onu çıkartalım 
 X_l = veri.iloc[:,[0,1,2,3,4]].values
 X_l = np.array(X_l, dtype = float)
 model = sm.OLS(boy, X_l).fit()
