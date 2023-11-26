@@ -45,8 +45,6 @@ Y_test = scaler.fit_transform(y_test)
 '''
 
 
-
-
 # LINEAR REGRESSION MODELİ OLUŞTURALIM-----------------------------------------------------------
 
 from sklearn.linear_model import LinearRegression
