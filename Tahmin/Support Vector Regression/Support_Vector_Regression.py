@@ -87,7 +87,7 @@ sc2 = StandardScaler()
 y_olcekli = sc2.fit_transform(Y)
  
 
-# SVR 
+# SVR --------------------------------------------------------------------
 
 from sklearn.svm import SVR
 
