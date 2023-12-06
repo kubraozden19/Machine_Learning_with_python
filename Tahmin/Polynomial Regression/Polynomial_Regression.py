@@ -37,10 +37,10 @@ plt.show()
 # örneğin x.values yaparak sadece değerlerini alarak sorunu çözebiliriz
 
 
-# Poliynomial Regressinon -----------------------------------------------------
+# Polynomial Regressinon -----------------------------------------------------
 from sklearn.preprocessing import PolynomialFeatures
 # PolynomialFeatures bize herhangi bir sayıyı polinomal olarak ifade etmemize yarıyor
-# istediğimiz porlinom dereceğini verebiliriz.
+# istediğimiz polinom dereceğini verebiliriz.
 
 poly_reg = PolynomialFeatures(degree = 2)
 # linear dünyadaki x değerimi polinomal dünyaya çeviriyoruz
