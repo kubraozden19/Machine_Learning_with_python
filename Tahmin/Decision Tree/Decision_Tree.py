@@ -108,11 +108,16 @@ from sklearn.tree import DecisionTreeRegressor
 dt_reg = DecisionTreeRegressor(random_state = 0)
 
 dt_reg.fit(X,Y) # Y:maas, X:pozisyonlar
+Z = X + 0.5
+K = X - 0.4
 
 plt.scatter(X,Y, color = 'black')
 plt.plot(X, dt_reg.predict(X), color = 'yellow')
 
+plt.plot(x, dt_reg.predict(Z), color = 'green')
+plt.plot(x, dt_reg.predict(K), color = 'yellow')
 
+plt.show()
 print(dt_reg.predict([[11]]))
 print(dt_reg.predict([[6.6]]))
 
