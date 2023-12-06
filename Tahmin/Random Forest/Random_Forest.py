@@ -21,7 +21,7 @@ X = x.values
 Y = y.values
 
 
-# Decision Tree ---------------------------------------------------------
+# Decision Tree Regression ----------------------------------------------------
 from sklearn.tree import DecisionTreeRegressor
 
 dt_reg = DecisionTreeRegressor(random_state = 0)
@@ -40,11 +40,14 @@ plt.show()
 print(dt_reg.predict([[11]]))
 print(dt_reg.predict([[6.6]]))
 
+from sklearn.metrics import r2_score
+print("Decision Tree R2 değeri")
+print(r2_score(Y, dt_reg.predict(X)))
 
 
 
 
-# Random Forest (Rassal Ağaclar)---------------------------------------------
+# Random Forest (Rassal Ağaclar) Regression -----------------------------------
 
 from sklearn.ensemble import RandomForestRegressor
 # Tahmin için kullanılan algoritmalar genelde regeressor şeklinde geçiyor
@@ -63,8 +66,6 @@ plt.plot(X, rf_reg.predict(Z), color = 'green')
 plt.plot(X, rf_reg.predict(K), color = 'yellow')
 
 
-
-
 '''
 Decision Tree de ağacımızdaki veriler tamamen net veriler üzerindendi, Decision tree öğrenme aşamasındaki 
 veriler dışında bir veri döndüremezdi. Ama random forest da birden fazla decision tree oluşturuyorduk ve 
@@ -74,9 +75,16 @@ dışında veriler dönmesi random forest da mümkün olabiliyor tahminde, sın�
 random forest da farklı bişey döndüremez
 '''
 
+# R2 Hesaplanması---------------------------------------------------------
+from sklearn.metrics import r2_score
 
+print("Random Forest R2 değeri")
+print(r2_score(Y, rf_reg.predict(X)))
+# Y : gerçek değer
+# rf_reg.predict(X) : tahmin edilen değer
 
-
+print("K için :",r2_score(Y, rf_reg.predict(K)))
+print("Z için :",r2_score(Y, rf_reg.predict(Z)))
 
 
 
